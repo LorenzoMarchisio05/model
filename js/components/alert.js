@@ -31,8 +31,6 @@ wrap.style.cssText =
 wrap.style.height = parseInt(document.body.clientHeight + 100) + "px";
 wrap.style.width = parseInt(document.body.clientWidth + 100) + "px";
 
-document.body.style.overflow = "hidden";
-
 wrap.appendChild(dialog);
 
 dialog.appendChild(titoloDialog);
@@ -46,6 +44,7 @@ document.body.appendChild(wrap);
 wrap.style.display = "none";
 
 export function dialogOpen(titolo = "titolo", messaggio = "testo") {
+    document.body.style.overflow = "hidden";
     dialog.style.top = "0.5";
     titoloDialog.innerHTML = titolo;
     corpoDialog.innerHTML = messaggio;
@@ -71,5 +70,5 @@ chiudiDialog.onclick = (e) => {
     dialog.style.display = "none";
     dialog.style.opacity = "0";
     wrap.style.display = "none";
-    document.body.style.overflow = "auto";
+    document.body.style.overflow = "initial";
 };
